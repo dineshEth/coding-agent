@@ -1,7 +1,7 @@
 import json
 from config import Mistral_api_key
 from mistralai.client import Mistral
-from .tools import read_file, create_file, write_file_end, delete_file
+from .tools import read_file, create_file, write_file_end, delete_file, create_directory,delete_directory,read_directory
 from .memory import messages
 from .tools_schema import Tools
 
@@ -38,6 +38,12 @@ def chatMessage(message):
                 result = write_file_end(**args)
             case "delete_file":
                 result = delete_file(**args)
+            case "read_directory":
+                result = read_directory(**args)
+            case "create_directory":
+                result = create_directory(**args)
+            case "delete_directory":
+                result = delete_directory(**args)
             case _ :
                 result = f"Tool '{tool_call.function.name}' is not implemented."
 

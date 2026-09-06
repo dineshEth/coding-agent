@@ -56,5 +56,47 @@ Tools = [
                 "required": ["path"],
             },
         },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "create_directory",
+            "description": "Create a new directory at the given path.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string", "description": "The path to the directory to create."},
+                },
+                "required": ["path"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "delete_directory",
+            "description": "Delete a directory at the given path.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string", "description": "The path to the directory to delete."},
+                },
+                "required": ["path"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "read_directory",
+            "description": "Read the contents of a directory and return a list of files and subdirectories.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "path": {"type": "string", "description": "The path to the directory to read."},
+                },
+                "required": ["path"],
+            },
+        },
     }
 ]

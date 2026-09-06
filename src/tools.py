@@ -1,3 +1,5 @@
+import os
+
 def read_file(path):
     try:
         with open(path, "r", encoding="utf-8") as f:
@@ -31,3 +33,29 @@ def delete_file(path):
         return f"The file '{path}' does not exist."
     except Exception as e:
         return f"Error deleting file '{path}': {str(e)}"
+
+def create_directory(path):
+    try:
+        os.makedirs(path, exist_ok=True)
+        return f"Directory '{path}' created successfully."
+    except Exception as e:
+        return f"Error creating directory '{path}': {str(e)}"
+
+def delete_directory(path):
+    try:
+        os.rmdir(path)
+        return f"Directory '{path}' deleted successfully."
+    except FileNotFoundError:
+        return f"The directory '{path}' does not exist."
+    except OSError as e:
+        return f"Error deleting directory '{path}': {str(e)}"
+
+def read_directory(path):
+    try:
+        files = os.listdir(path)
+        return files
+    except FileNotFoundError:
+        return f"The directory '{path}' does not exist."
+    except Exception as e:
+        return f"Error reading directory '{path}': {str(e)}"
+
