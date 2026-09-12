@@ -61,3 +61,13 @@ def chatMessage(message):
                 "content": result,
             }
         )
+
+    chat_response = client.chat.complete(
+        model = model,
+        messages = messages,
+    )
+
+    message = chat_response.choices[0].message
+    messages.append(message)
+    return message.content
+    
