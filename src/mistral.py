@@ -31,18 +31,25 @@ def chatMessage(message):
         result = None
         match tool_call.function.name:
             case "read_file":
+                print("read_file")
                 result = read_file(**args)
             case "create_file":
+                print("create_file")
                 result = create_file(**args)
             case "write_file_end":
+                print("write_file_end")
                 result = write_file_end(**args)
             case "delete_file":
+                print("delete_file")
                 result = delete_file(**args)
             case "read_directory":
+                print("read_directory")
                 result = read_directory(**args)
             case "create_directory":
+                print("create_directory")
                 result = create_directory(**args)
             case "delete_directory":
+                print("delete_directory")
                 result = delete_directory(**args)
             case _ :
                 result = f"Tool '{tool_call.function.name}' is not implemented."
